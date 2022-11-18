@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Momentum App</title>
+  </head>
+  <body>
+    <form id="login-form" class="hidden">
+      <input
+        required
+        maxlength="15"
+        type="text"
+        placeholder="What is your name?"
+      />
+      <!-- 이렇게 input 안에 length를 체크하는 유효성 검사를 하려면 div가 아닌 form안에 집어넣어야 된다. -->
+      <!-- 이제 15이상의 길이로 적고싶어도 적을 수가 없게됨 -->
+      <!-- 하지만 form으로 정의하고 login버튼을 누르게 되면 웹사이트를 그 즉시 새로고침 하게 된다. form이 submit하기 때문에 -->
+      <!-- 즉 input안에 있는 버튼을 누르거나 type이 submit인 input을 클릭하면 form이 그냥 submit되기 때문에 이제 js에서 버튼에 대해 click같이 신경쓸 필요가 없다. -->
+      <!-- form안에 엔터를 누르고 input이 존재하지 않는다면 자동으로 submit된다는 규칙 -->
+      <!-- 물론 form안에 버튼을 눌렀을 때, 이때도 form이 자동으로 submit됨 -->
+      <!-- 근데 이건 우리가 원하는 방식이 아니다. 새로고침하기를 원하지 않기 때문에 -->
+      <!-- 그래서 이제는 submit이라는 event를 아예 막거나 중간에 개입해서 submit event가 발생한다는 걸 파악하고 싶다. -->
+      <!-- 이제 버튼이 아닌 form의 submit으로 엔터나 버튼을 클릭했을때 입력값을 받게 고칠 수 있게된다. 하지만 아직 새로고침 문제는 계속 발생 -->
+      <!-- js에서 event함수를 정의할때 preventDefault()함수를 사용하여 기본적으로 새로고침하는 행동을 못하게 막아준다. -->
+      <button>Log In</button>
+    </form>
+
+    <a id="link" href="https://www.google.com">Go to Google</a>
+    <!-- form의 기본동작은 엔터나 버튼을 누를때 submit을 한다. -->
+    <!-- 링크의 기본동작은 클릭 시 다른 페이지로 이동한다. -->
+
+    <h1 id="greeting" class="hidden"></h1>
+    <!-- 값을 입력 받으면 이 hidden이 보이고 form은 숨기게 만들 것이다. -->
+
+    <div id="logout" class="hidden">
+      <button>LogOut</button>
+    </div>
+
+    <!-- Clock -->
+    <h2 id="getClock">00:00:00</h2>
+
+    <div id="quote">
+      <span></span><br />
+      <span></span>
+    </div>
+    <form id="todo-form">
+      <input type="text" placeholder="Write a To Do and Press Enter" required />
+    </form>
+    <ul id="todo-list"></ul>
+    <!-- 자바스크립트로 li 추가하기 -->
+
+    <!-- 날씨 -->
+    <div id="weather">
+      <span></span>
+      <span></span>
+    </div>
+  </body>
+  <script src="js/greeting.js"></script>
+  <script src="js/clock.js"></script>
+  <script src="js/quotes.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/todo.js"></script>
+  <script src="js/weather.js"></script>
+</html>
